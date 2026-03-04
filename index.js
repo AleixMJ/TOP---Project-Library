@@ -41,7 +41,6 @@ addBookTab.addEventListener("click", () => {
 
         <div class="form-buttons">
             <button type="submit">Add Book</button>
-            <button type="button" class="cancel-btn">Cancel</button>
         </div>
     `;
 
