@@ -87,7 +87,8 @@ function createLibrary() {
         bookCard.innerHTML = `<div class="book-title">${book.title}</div>
         <div class="book-author">${book.author}</div>
         <div class="book-pages">${book.pages} pages</div>
-        <div class="book-read"> ${book.read} </div>
+        <div class="book-read"> <button class="read-button" data-id="${book.id}"
+         data-read="${book.read}"></button> </div>
         <button class="delete-button" data-id="${book.id}"></button>
         `;
         const deleteBtn = bookCard.querySelector(".delete-button");
@@ -127,6 +128,16 @@ function Book(title, author, pages, read) {
   this.read = readYet;
   this.id = crypto.randomUUID();
 }
+
+Book.prototype.toggleRead() = function() {
+    if (this.read == "yes") {
+        this.read = "no";
+    }
+    else {
+        this.read = "yes";
+    }
+}
+
 
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);

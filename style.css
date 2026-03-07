@@ -170,3 +170,20 @@ button[type="submit"] {
     color: rgb(144, 24, 24);
     font-weight: bold;
 }
+
+.read-button {
+    min-width: 100px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    background: #e74c3c;            
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.read-button[data-read="yes"] {
+    background: #27ae60;
+}
