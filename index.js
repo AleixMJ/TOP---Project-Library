@@ -4,11 +4,11 @@ const myLibrary = [];
 const addBookTab = document.querySelector("#addBookTab");
 const content = document.querySelector(".content");
 
+
 let formVisible = false;
 
 addBookTab.addEventListener("click", () => {
     if (formVisible) return;
-
     const form = document.createElement("form");
     form.className = "book-form";
     form.innerHTML = `
@@ -43,12 +43,23 @@ addBookTab.addEventListener("click", () => {
             <button type="submit">Add Book</button>
         </div>
     `;
-
+    
     content.appendChild(form);
     formVisible = true;
+    form.addEventListener('submit', handleSubmit);
+
+
+    
 });
 
+function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    addBookToLibrary(data.title, data.author, data.pages, data.read);
 
+}
 
 function Book(title, author, pages, read) {
 
