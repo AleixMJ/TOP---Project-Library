@@ -12,20 +12,22 @@ const LibraryTab = document.querySelector("#LibraryTab");
 
 
 LibraryTab.addEventListener("click", () => {
-    if (formVisible = true) {
+    if (formVisible == true) {
         form.reset();
         form.remove();
         formVisible = false;
     }
+    libraryDisplay.innerHTML = "";
     libraryDisplay.hidden = false;
+
     for (let book of myLibrary) {
         const bookCard = document.createElement("div");
         bookCard.className = "book-card";
         bookCard.innerHTML = `
-            <h3>${book.title}</h3>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>Pages:</strong> ${book.pages}</p>
-            <p><strong>Read:</strong> ${book.read}</p>
+            <div> ${book.title}</div>
+            <div> ${book.author}</div>
+            <div> ${book.pages}</div>
+            <div> ${book.read}</div>
         `;
         libraryDisplay.appendChild(bookCard);
     }
@@ -70,6 +72,7 @@ addBookTab.addEventListener("click", () => {
             <button type="submit">Add Book</button>
         </div>
     `;
+    libraryDisplay.innerHTML = "";
     libraryDisplay.hidden = true;
     content.appendChild(form);
     formVisible = true;
