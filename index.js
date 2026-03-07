@@ -1,15 +1,31 @@
+/* Declare constants*/
+
 const myLibrary = [];
-
-
 const addBookTab = document.querySelector("#addBookTab");
 const content = document.querySelector(".content");
-
-
 let formVisible = false;
+const form = document.createElement("form");
+const libraryDisplay = document.querySelector(".library-display");
+const LibraryTab = document.querySelector("#LibraryTab");
+
+/* Displaying the books on the Library */
+
+
+LibraryTab.addEventListener("click", () => {
+    if (formVisible = true) {
+        form.reset();
+        form.remove();
+        formVisible = false;
+    }
+libraryDisplay.hidden = false;
+});
+
+
+/* Adding book form display and processing process */
+
 
 addBookTab.addEventListener("click", () => {
-    if (formVisible) return;
-    const form = document.createElement("form");
+    if (formVisible) return;    
     form.className = "book-form";
     form.innerHTML = `
         <h2>Add New Book</h2>
@@ -43,7 +59,7 @@ addBookTab.addEventListener("click", () => {
             <button type="submit">Add Book</button>
         </div>
     `;
-    
+    libraryDisplay.hidden = true;
     content.appendChild(form);
     formVisible = true;
     form.addEventListener('submit', handleSubmit);
@@ -51,6 +67,9 @@ addBookTab.addEventListener("click", () => {
 
     
 });
+
+
+
 
 function handleSubmit(event) {
     event.preventDefault();
