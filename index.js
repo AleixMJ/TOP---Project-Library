@@ -19,15 +19,21 @@ LibraryTab.addEventListener("click", () => {
     }
     libraryDisplay.innerHTML = "";
     libraryDisplay.hidden = false;
-
+    const BookCardTitles = document.createElement("div");
+    BookCardTitles.className = "book-card";
+    BookCardTitles.innerHTML = ` <div> Title </div>
+    <div> Author </div>
+    <div> Total Pages </div>
+    <div> Read </div>
+    `
+    libraryDisplay.appendChild(BookCardTitles);
     for (let book of myLibrary) {
         const bookCard = document.createElement("div");
         bookCard.className = "book-card";
-        bookCard.innerHTML = `
-            <div> ${book.title}</div>
-            <div> ${book.author}</div>
-            <div> ${book.pages}</div>
-            <div> ${book.read}</div>
+        bookCard.innerHTML = `<div class="book-title">${book.title}</div>
+        <div class="book-author">${book.author}</div>
+        <div class="book-pages">${book.pages} pages</div>
+        <div class="book-read"> ${book.read} </div>
         `;
         libraryDisplay.appendChild(bookCard);
     }

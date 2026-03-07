@@ -42,12 +42,13 @@ html, body {
 }
 
 .sidebar button {
-    margin: 15px 0;
+    margin: 15px 10px;
     background-color: rgb(3, 92, 53);
     color: white;
     padding: 5px 15px;
     font-size: 2rem;
     border-radius: 5px;
+
 }
 
 .content {
@@ -108,8 +109,54 @@ button[type="submit"] {
 }
 
 .library-display {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
     grid-auto-flow: row;
     background-color: #f9f9f9;
+    margin: 30px;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.book-card {
+    display: grid;
+    grid-template-columns: 2fr 1.8fr 1fr auto;
+    align-items: center;
+    padding-left: 10px;
+    border-radius: 5px;
+
+}
+
+.book-card:nth-of-type(1) {
+    background-color: #048650;
+    color: white;
+    font-weight: bold;
+    padding: 10px 5px;
+
+}
+
+.book-title {
+    font-weight: bold;
+  
+}
+
+.book-pages {
+    color: #777;
+    font-variant-numeric: tabular-nums;
+}
+
+.book-read {
+    justify-self: end;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.book-card {
+    margin: 5px 0;    
+}
+
+
+.book-card:nth-of-type(even)  {
+    background-color: #8fbca9;
 }
