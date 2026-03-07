@@ -37,8 +37,7 @@ html, body {
     background-color: rgb(138, 201, 180);
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.55);
     position: relative;
-    padding-top: 40px; 
-
+    padding-top: 40px;    
 }
 
 .sidebar button {
@@ -48,7 +47,10 @@ html, body {
     padding: 5px 15px;
     font-size: 2rem;
     border-radius: 5px;
-
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5),
+                0 8px 20px rgba(0, 0, 0, 0.35);
+    align-self: left;
+     
 }
 
 .content {
