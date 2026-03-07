@@ -17,7 +17,18 @@ LibraryTab.addEventListener("click", () => {
         form.remove();
         formVisible = false;
     }
-libraryDisplay.hidden = false;
+    libraryDisplay.hidden = false;
+    for (let book of myLibrary) {
+        const bookCard = document.createElement("div");
+        bookCard.className = "book-card";
+        bookCard.innerHTML = `
+            <h3>${book.title}</h3>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>Pages:</strong> ${book.pages}</p>
+            <p><strong>Read:</strong> ${book.read}</p>
+        `;
+        libraryDisplay.appendChild(bookCard);
+    }
 });
 
 
