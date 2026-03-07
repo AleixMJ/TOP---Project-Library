@@ -91,6 +91,11 @@ function createLibrary() {
          data-read="${book.read}"></button> </div>
         <button class="delete-button" data-id="${book.id}"></button>
         `;
+        const readBtn = bookCard.querySelector(".read-button");
+        readBtn.addEventListener("click", () => {
+            book.toggleRead();
+            createLibrary();
+        })
         const deleteBtn = bookCard.querySelector(".delete-button");
         deleteBtn.addEventListener("click", () => {
         const bookId = deleteBtn.dataset.id;
@@ -129,7 +134,7 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
-Book.prototype.toggleRead() = function() {
+Book.prototype.toggleRead = function() {
     if (this.read == "yes") {
         this.read = "no";
     }
