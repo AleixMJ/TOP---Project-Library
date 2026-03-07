@@ -1,6 +1,6 @@
 /* Declare constants*/
 
-const myLibrary = [];
+let myLibrary = [];
 const addBookTab = document.querySelector("#addBookTab");
 const content = document.querySelector(".content");
 let formVisible = false;
@@ -93,7 +93,7 @@ function createLibrary() {
         const deleteBtn = bookCard.querySelector(".delete-button");
         deleteBtn.addEventListener("click", () => {
         const bookId = deleteBtn.dataset.id;
-        myLibrary = myLibrary.filter(book => book.id == bookId);
+        myLibrary = myLibrary.filter(book => book.id != bookId);
         createLibrary();  
         })
         libraryDisplay.appendChild(bookCard);
