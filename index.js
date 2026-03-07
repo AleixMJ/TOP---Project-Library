@@ -58,6 +58,10 @@ function handleSubmit(event) {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
     addBookToLibrary(data.title, data.author, data.pages, data.read);
+    form.reset();
+    form.remove();
+    formVisible = false;
+    alert("Book added to the Library");
 
 }
 
