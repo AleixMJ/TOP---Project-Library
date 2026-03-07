@@ -119,7 +119,7 @@ button[type="submit"] {
 
 .book-card {
     display: grid;
-    grid-template-columns: 2fr 1.8fr 1fr auto;
+    grid-template-columns: 2fr 1.8fr 1fr 1fr auto;
     align-items: center;
     padding-left: 10px;
     border-radius: 5px;
@@ -146,10 +146,10 @@ button[type="submit"] {
 }
 
 .book-read {
-    justify-self: end;
+    justify-self: center;
     padding: 0.4rem 1rem;
     border-radius: 2rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -160,4 +160,13 @@ button[type="submit"] {
 
 .book-card:nth-of-type(even)  {
     background-color: #8fbca9;
+}
+
+.delete-button {
+    background-color: transparent;
+}
+.delete-button::before {
+    content: "✗";
+    color: rgb(144, 24, 24);
+    font-weight: bold;
 }

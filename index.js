@@ -11,33 +11,7 @@ const LibraryTab = document.querySelector("#LibraryTab");
 /* Displaying the books on the Library */
 
 
-LibraryTab.addEventListener("click", () => {
-    if (formVisible == true) {
-        form.reset();
-        form.remove();
-        formVisible = false;
-    }
-    libraryDisplay.innerHTML = "";
-    libraryDisplay.hidden = false;
-    const BookCardTitles = document.createElement("div");
-    BookCardTitles.className = "book-card";
-    BookCardTitles.innerHTML = ` <div> Title </div>
-    <div> Author </div>
-    <div> Pages </div>
-    <div> Read </div>
-    `
-    libraryDisplay.appendChild(BookCardTitles);
-    for (let book of myLibrary) {
-        const bookCard = document.createElement("div");
-        bookCard.className = "book-card";
-        bookCard.innerHTML = `<div class="book-title">${book.title}</div>
-        <div class="book-author">${book.author}</div>
-        <div class="book-pages">${book.pages} pages</div>
-        <div class="book-read"> ${book.read} </div>
-        `;
-        libraryDisplay.appendChild(bookCard);
-    }
-});
+LibraryTab.addEventListener("click", () => createLibrary());
 
 
 /* Adding book form display and processing process */
@@ -89,7 +63,43 @@ addBookTab.addEventListener("click", () => {
 });
 
 
+function createLibrary() {
+    console.log("creating Library");
+    if (formVisible == true) {
+        form.reset();
+        form.remove();
+        formVisible = false;
+    }
+    libraryDisplay.innerHTML = "";
+    libraryDisplay.hidden = false;
+    const BookCardTitles = document.createElement("div");
+    BookCardTitles.className = "book-card";
+    BookCardTitles.innerHTML = ` <div> Title </div>
+    <div> Author </div>
+    <div> Pages </div>
+    <div> Read </div>
+    <div> Delete </div>
+    `
+    libraryDisplay.appendChild(BookCardTitles);
+    for (let book of myLibrary) {
+        const bookCard = document.createElement("div");
+        bookCard.className = "book-card";
+        bookCard.innerHTML = `<div class="book-title">${book.title}</div>
+        <div class="book-author">${book.author}</div>
+        <div class="book-pages">${book.pages} pages</div>
+        <div class="book-read"> ${book.read} </div>
+        <button class="delete-button" data-id="${book.id}"></button>
+        `;
+        const deleteBtn = bookCard.querySelector(".delete-button");
+        deleteBtn.addEventListener("click", () => {
+        const bookId = deleteBtn.dataset.id;
+        myLibrary = myLibrary.filter(book => book.id == bookId);
+        createLibrary();  
+        })
+        libraryDisplay.appendChild(bookCard);
+    }
 
+}
 
 function handleSubmit(event) {
     event.preventDefault();
