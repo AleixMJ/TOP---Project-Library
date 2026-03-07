@@ -21,7 +21,7 @@ addBookTab.addEventListener("click", () => {
     if (formVisible) return;    
     form.className = "book-form";
     form.innerHTML = `
-        <h2>Add New Book</h2>
+        <h2>ADD NEW BOOK</h2>
         
         <div class="form-group">
             <label for="title">Title:</label>
