@@ -23,7 +23,7 @@ LibraryTab.addEventListener("click", () => {
     BookCardTitles.className = "book-card";
     BookCardTitles.innerHTML = ` <div> Title </div>
     <div> Author </div>
-    <div> Total Pages </div>
+    <div> Pages </div>
     <div> Read </div>
     `
     libraryDisplay.appendChild(BookCardTitles);
