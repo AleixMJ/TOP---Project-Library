@@ -134,14 +134,10 @@ class Book {
         this.id = crypto.randomUUID();
     }
     
-}
 
-Book.prototype.toggleRead = function() {
-    if (this.read == "yes") {
-        this.read = "no";
-    }
-    else {
-        this.read = "yes";
+        
+    toggleRead() {
+        this.read = (this.read == "yes") ? "no" : "yes";
     }
 }
 
