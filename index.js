@@ -120,18 +120,20 @@ function handleSubmit(event) {
 
 }
 
-function Book(title, author, pages, read) {
+class Book {
 
-    let readYet = read.toLowerCase();
-    if (read != "yes" && read != "no") {
-        throw Error("the parameter read can only be 'yes' or no")
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        let readYet = read.toLowerCase();
+        if (read != "yes" && read != "no") {
+            throw Error("the parameter read can only be 'yes' or no")
+        }
+        this.read = readYet;
+        this.id = crypto.randomUUID();
     }
-
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = readYet;
-  this.id = crypto.randomUUID();
+    
 }
 
 Book.prototype.toggleRead = function() {
