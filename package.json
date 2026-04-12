@@ -1,0 +1,25 @@
+{
+  "name": "top---project-library",
+  "version": "1.0.0",
+  "description": "https://www.theodinproject.com/lessons/node-path-javascript-library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleixMJ/TOP---Project-Library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AleixMJ/TOP---Project-Library/issues"
+  },
+  "homepage": "https://github.com/AleixMJ/TOP---Project-Library#readme",
+  "devDependencies": {
+    "prettier": "3.8.2"
+  }
+}
