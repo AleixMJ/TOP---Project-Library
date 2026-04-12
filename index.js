@@ -5,6 +5,7 @@ const addBookTab = document.querySelector("#addBookTab");
 const content = document.querySelector(".content");
 let formVisible = false;
 const form = document.createElement("form");
+form.noValidate = true;
 const libraryDisplay = document.querySelector(".library-display");
 const LibraryTab = document.querySelector("#LibraryTab");
 
@@ -35,7 +36,7 @@ addBookTab.addEventListener("click", () => {
 
         <div class="form-group">
             <label for="pages">Number of Pages:</label>
-            <input type="number" id="pages" name="pages" min="1" required placeholder="e.g. 310">
+            <input type="number" id="pages" name="pages" required placeholder="e.g. 310">
         </div>
 
         <div class="form-group radio-group">
@@ -44,7 +45,7 @@ addBookTab.addEventListener("click", () => {
                 <input type="radio" name="read" value="yes" required> Yes
             </label>
             <label>
-                <input type="radio" name="read" value="no"> No
+                <input type="radio" name="read" value="no" checked> No
             </label>
         </div>
 
@@ -107,14 +108,51 @@ function createLibrary() {
 
 }
 
+
+
 function handleSubmit(event) {
     event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
+
+    // check custom validity
+    const authorInput = form.querySelector("#author");
+    const titleInput = form.querySelector("#title");
+    const pagesInput = form.querySelector("#pages");
+
+    authorInput.setCustomValidity("");
+    titleInput.setCustomValidity("");
+    pagesInput.setCustomValidity("");
+    let isValid = true;
+
+    if (authorInput.value.trim() === "") {
+        authorInput.setCustomValidity(`The author name must be filled!`);
+        isValid = false;
+        
+
+    }
+
+        if (titleInput.value.trim() === "") {
+        titleInput.setCustomValidity(`The title must be filled!`);
+        isValid = false;     
+
+    }
+
+    if (pagesInput.value.trim() === "") {
+        pagesInput.setCustomValidity(`The number of pages must be filled!`);
+        isValid = false;
+    }
+
+    if (!isValid) {
+        form.reportValidity();
+        return;
+    }
+
+    // add book
+    const submittedform = event.target;
+    const formData = new FormData(submittedform);
     const data = Object.fromEntries(formData);
     addBookToLibrary(data.title, data.author, data.pages, data.read);
-    form.reset();
-    form.remove();
+    submittedform.reset();
+    submittedform.remove();
     formVisible = false;
     alert("Book added to the Library");
 

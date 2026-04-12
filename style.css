@@ -198,6 +198,17 @@ button[type="submit"] {
     background: #27ae60;
 }
 
+input:invalid {
+    border: 2px solid #ff4d4d;
+    background-color: #fffafa;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #2e7d32; /* A slightly darker green */
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.2);
+}
+
 @media (max-width: 480px) {
 
     html, body {
